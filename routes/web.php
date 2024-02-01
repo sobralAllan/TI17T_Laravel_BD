@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/cadastrar',[\App\Http\Controllers\cadastrarUsuario::class,'index']);
 Route::post('/cadastrar/salvar',[\App\Http\Controllers\cadastrarUsuario::class, 'store']);
+Route::get('/consultar',[\App\Http\Controllers\cadastrarUsuario::class,'consultar']);
+Route::get('/editar/{id}', [\App\Http\Controllers\cadastrarUsuario::class, 'editar']);
+Route::get('/atualizar/{id}', [\App\Http\Controllers\cadastrarUsuario::class, 'atualizar']);
+

@@ -1,13 +1,5 @@
 <x-layout title="Formulário Cadastro">
-    <div class="container">
-        @foreach($dados as $dado)
-            <li class="list-group-item">{{$dado->nome}}</li>
-            <li class="list-group-item">{{$dado->telefone}}</li>
-            <br><br>
-        @endforeach
-    </div>
-
-    <form action="/cadastrar/salvar" method="POST">
+    <form class="container" action="/cadastrar/salvar" method="POST">
         @csrf <!-- Valida o formulário -->
         <br>
         <label> Nome: </label>
@@ -16,6 +8,8 @@
         <label> Telefone: </label>
         <input type="text" id="telefone" name="telefone" placeholder="(11)99999-9999" required/><br><br>
 
-        <button type="submit"> Enviar </button>
+        <button  class="btn btn-primary" type="submit"> Cadastrar </button>
+        <a class="btn btn-primary" href="atualizar">Atualizar</a>
+        <a class="btn btn-primary" href="consultar">Consultar</a>
     </form>
 </x-layout>

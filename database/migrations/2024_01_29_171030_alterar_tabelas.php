@@ -11,12 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usuarios', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome', 150);
-            $table->string('telefone', 13);
-            $table->timestamps();//Registre data e hora
-        });
+        Schema::dropIfExists('createPersonalAccessTokensTable');
     }
 
     /**
@@ -24,7 +19,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usuario');
+        
     }
-
 };

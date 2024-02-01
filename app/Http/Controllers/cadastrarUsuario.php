@@ -7,13 +7,15 @@ use App\Models\cadastrarUsuarioModel;//Importar a classe que eu quero utilizar
 
 class cadastrarUsuario extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $dados = cadastrarUsuarioModel::all();
 
         return view('paginas.cadastrar')->With('dados',$dados);
     }//fim do método
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $nomeUsuario     = $request->input('nome');//Coletando os dados do formulário
         $telefoneUsuario = $request->input('telefone');
         
@@ -23,5 +25,29 @@ class cadastrarUsuario extends Controller
         $model->save();//Armazenar os dados no BD
 
         return redirect('/cadastrar');
-    }//fim do método store
+    }//fim do método store   
+
+    public function consultar()
+    {
+        $ids = cadastrarUsuarioModel::all();
+
+        return view('paginas.consultar', compact('ids'));
+    }//fim do método
+
+    public function editar($id)
+    {
+        $dado = cadastrarUsuarioModel::findOrFail($id);
+
+        return view('paginas.editar', compact('dado'));
+    }//fim do método
+
+    public function atualizar(Request $request, cadastrarUsuarioModel $id)
+    {
+        //$id->fill($request->all());
+        $id->update();//Erro por aqui, verificar
+    }
+
+
+  
+  
 }//fim da classe
