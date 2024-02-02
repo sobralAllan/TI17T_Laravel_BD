@@ -18,4 +18,5 @@ Route::post('/cadastrar/salvar',[\App\Http\Controllers\cadastrarUsuario::class, 
 Route::get('/consultar',[\App\Http\Controllers\cadastrarUsuario::class,'consultar']);
 Route::get('/editar/{id}', [\App\Http\Controllers\cadastrarUsuario::class, 'editar']);
 Route::get('/atualizar/{id}', [\App\Http\Controllers\cadastrarUsuario::class, 'atualizar']);
+Route::get('/excluir/{id}',[\App\Http\Controllers\cadastrarUsuario::class, 'excluir']);
 

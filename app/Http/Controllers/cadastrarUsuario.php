@@ -41,11 +41,19 @@ class cadastrarUsuario extends Controller
         return view('paginas.editar', compact('dado'));
     }//fim do método
 
-    public function atualizar(Request $request, cadastrarUsuarioModel $id)
+    public function atualizar(Request $request, $id)
     {
-        //$id->fill($request->all());
-        $id->update();//Erro por aqui, verificar
-    }
+        cadastrarUsuarioModel::where('id',$id)->update($request->all());
+
+        return redirect('consultar');
+    }//fim do atualizar
+
+    public function excluir(Request $request, $id)
+    {
+        cadastrarUsuarioModel::where('id',$id)->delete($request->all());
+
+        return redirect('consultar');
+    }//fim do excluir
 
 
   
